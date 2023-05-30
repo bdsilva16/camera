@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Button, SafeAreaView, StyleSheet, View, Platform } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as MediaLibrary from 'expo-media-library';
-import { MaterialIcons } from '@expo/vector-icons';
 
 export default function App() {
   useEffect(() => {
@@ -44,8 +43,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.buttonContainer}>
-        <MaterialIcons name="enhance-photo-translate" size={24} color="black" />
-        <Button title="Click-me!!!" onPress={handleCameraButtonPress}/>
+        <Button title="Click-me!" onPress={handleCameraButtonPress} />
       </View>
     </SafeAreaView>
   );
@@ -55,12 +53,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    marginTop:"100%",
-    
-    
-    width:"100%",
-    flexDirection:'row'
-    
+    paddingHorizontal: 20,
+    paddingTop: Platform.OS === 'android' ? 25 : 0,
   },
-  
+  buttonContainer: {
+    marginBottom: 20,
+  },
 });
